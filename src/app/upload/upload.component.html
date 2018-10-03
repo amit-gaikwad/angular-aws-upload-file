@@ -1,0 +1,13 @@
+<div>
+  upload Files!
+
+  select file:<input type="file" name="photourl" accept="image/*" (change)="selectFile($event)" ngModel  #photoRef="ngModel" required/>
+  <button type="button"  class="upbutton" id="upload-button" (click)="onUpload($event)">Upload</button>
+
+</div>
+<div>
+  Uploaded Images
+  <div *ngFor="let item of uploadedPhotos;let i = index">
+    {{i+1}}<img height="100px" width="100px" [src]="item" />
+  </div>
+</div>
