@@ -12,6 +12,8 @@ export class UploadComponent {
   selectedFiles: FileList;
   photourl = "";
   uploadedPhotos=[]
+  constructor() { }
+
   
   selectFile(event) {
 
@@ -22,8 +24,8 @@ export class UploadComponent {
     const file = this.selectedFiles.item(0);
     if (file) {
       AWS.config.update({
-          'accessKeyId': 'AKIAILGGQK25JKQI6Q5A',
-          'secretAccessKey': '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',
+          'accessKeyId': 'AKIAIVBKJ4AK5FNK5M6A',
+          'secretAccessKey': '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',
           'region': 'us-west-2'
       });
       const s3 = new AWS.S3();
@@ -40,7 +42,7 @@ export class UploadComponent {
           } else {
             console.log('Successfully uploaded data' , res);
             this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
-            this.uploadedPhotos.push(this.photourl);
+            this.uploadedPhotos.push(this.photourl)
           }
         });
     } else {
