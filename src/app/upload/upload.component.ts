@@ -10,17 +10,17 @@ declare var AWS: any;
 export class UploadComponent {
 
   selectedFiles: FileList;
-  photourl = "";
-  uploadedPhotos=[]
+  photourl = '';
+  uploadedPhotos = [];
   constructor() { }
 
-  
+
   selectFile(event) {
 
     this.selectedFiles = event.target.files;
   }
 
-  onUpload () { 
+  onUpload () {
     const file = this.selectedFiles.item(0);
     if (file) {
       AWS.config.update({
@@ -36,13 +36,13 @@ export class UploadComponent {
           Body: file,
           ACL: 'public-read'
       };
-      s3.putObject(params, (err, res)=> {
+      s3.putObject(params, (err, res) => {
           if (err) {
               console.log('Error uploading data: ', err);
           } else {
             console.log('Successfully uploaded data' , res);
-            this.photourl = "https://"+"s3-us-west-2.amazonaws.com/preschool-angular/"+file.name;
-            this.uploadedPhotos.push(this.photourl)
+            this.photourl = 'https://' + 's3-us-west-2.amazonaws.com/preschool-angular/' + file.name;
+            this.uploadedPhotos.push(this.photourl);
           }
         });
     } else {

@@ -1,3 +1,12 @@
 <div>
+  <div>
+    <ul>
+      <li>
+        <a [routerLink]='["/home"]' >Home</a>
+        <a [routerLink]="['/about']" >About</a>
+      </li>
+    </ul>
+  </div>
+  <router-outlet> </router-outlet> 
   <app-upload></app-upload>
 </div>
